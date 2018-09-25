@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Query;
@@ -17,6 +18,24 @@ namespace EF.Core.Bulk
 {
     public static class DbContextHelper
     {
+
+        public static Task<int> DeleteAsync<T>(this IQueryable<T> query)
+            where T : class
+        {
+            return DeleteAsync<T>(query.GetDbContext(), query);
+        }
+
+        public static Task<int> UpdateAsync<T>(this IQueryable<T> query)
+            where T : class
+        {
+            return UpdateAsync<T>(query.GetDbContext(), query);
+        }
+
+        public static Task<int> InsertAsync<T>(this IQueryable<T> query)
+            where T : class
+        {
+            return InsertAsync<T>(query.GetDbContext(), query);
+        }
 
         public static async Task<int> DeleteAsync<T>(this DbContext context, IQueryable<T> query)
             where T:class
