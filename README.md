@@ -1,6 +1,6 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/y19dkdfjl3lkokvp?svg=true)](https://ci.appveyor.com/project/neurospeech/ef-core-bulk)
 
-[![NuGet](https://img.shields.io/nuget/v/EF.Core.Bulk.svg?label=NuGet)](https://www.nuget.org/packages/UIAtoms.Xamarin.Forms)
+[![NuGet](https://img.shields.io/nuget/v/EF.Core.Bulk.svg?label=NuGet)](https://www.nuget.org/packages/EF.Core.Bulk)
 
 
 # EF-Core-Bulk
