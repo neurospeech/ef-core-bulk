@@ -6,6 +6,13 @@
     <ApplicationIcon />
     <StartupObject />
     <Version>1.0.1</Version>
+    <Authors>Akash Kava</Authors>
+    <Company>NeuroSpeech Technologies Pvt Ltd</Company>
+    <PackageLicenseUrl>https://github.com/neurospeech/ef-core-bulk/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/neurospeech/ef-core-bulk/blob/master/README.md</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/neurospeech/ef-core-bulk</RepositoryUrl>
+    <Copyright>2018, NeuroSpeech Technologies Pvt Ltd</Copyright>
+    <Description>EF Core bulk operations - INSERT SELECT, UPDATE SELECT , DELETE SELECT</Description>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
