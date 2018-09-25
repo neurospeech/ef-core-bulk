@@ -32,9 +32,9 @@ namespace EF.Core.Bulk.Tests
 
                 Assert.Equal(6, count);
 
-                count = await db.UpdateAsync(googleProducts.Select(p => new Product {
+                count = await googleProducts.Select(p => new Product {
                     Archived = true
-                }));
+                }).UpdateAsync();
 
                 Assert.Equal(4, count);
 
