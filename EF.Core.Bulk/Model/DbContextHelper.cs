@@ -173,6 +173,7 @@ namespace EF.Core.Bulk
                     return list.Count;
                 }
                 var queryInfo = GenerateCommand(context, query);
+                var entityType = context.Model.GetEntityTypes().FirstOrDefault(x => x.ClrType == typeof(T));
                 var schema = entityType.Relational().Schema;
                 var tableName = entityType.Relational().TableName;
 
