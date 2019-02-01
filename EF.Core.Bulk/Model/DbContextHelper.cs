@@ -51,9 +51,10 @@ namespace EF.Core.Bulk
 
             var queryInfo = GenerateCommand(context, query);
 
-            var firstTable = queryInfo.Sql.Tables.OfType<TableExpression>().FirstOrDefault();
+            var entityType = context.Model.GetEntityTypes().FirstOrDefault(x => x.ClrType == typeof(T));
 
-            var tableName = firstTable.Table;
+            var schema = entityType.Relational().Schema;
+            var tableName = entityType.Relational().TableName;
 
             var sql = $"DELETE {queryInfo.Sql.Tables.FirstOrDefault().Alias} FROM ";
 
