@@ -16,6 +16,21 @@ namespace EF.Core.Bulk.Tests
         }
 
         [Fact]
+        public async Task BulkUpdate()
+        {
+            using (var db = this.CreateContext())
+            {
+                await db.ProductAccounts
+                    .Where(x => x.Account.Archived != false)
+                    .Select(x => x.Product)
+                    .Select(x => new Product {
+                        Archived = true
+                    })
+                    .UpdateAsync();
+            }
+        }
+
+        [Fact]
         public async Task BulkInsert()
         {
             using (var db = this.CreateContext()) {

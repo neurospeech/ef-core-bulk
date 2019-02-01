@@ -98,10 +98,8 @@ namespace EF.Core.Bulk
                     return list.Count;
                 }
 
-                var firstTable = queryInfo.Sql.Tables.OfType<TableExpression>().FirstOrDefault();
-
-
-                var tableName = firstTable.Table;
+                var schema = entityType.Relational().Schema;
+                var tableName = entityType.Relational().TableName;
 
                 var sql = $"UPDATE T1 SET ";
 
@@ -175,9 +173,8 @@ namespace EF.Core.Bulk
                     return list.Count;
                 }
                 var queryInfo = GenerateCommand(context, query);
-                var firstTable = queryInfo.Sql.Tables.OfType<TableExpression>().FirstOrDefault();
-
-                var tableName = firstTable.Table;
+                var schema = entityType.Relational().Schema;
+                var tableName = entityType.Relational().TableName;
 
                 var sql = $"INSERT INTO {tableName} (";
 
